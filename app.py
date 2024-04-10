@@ -52,7 +52,7 @@ def predict_emotion():
         return jsonify(response)
 #funcion que lee el archivo csv con el hsitorial de predicciones y lo devuelve en un arreglo
 def show_entry():
-    day_entry_list = pd.read_csv("/content/Class135B/static/assets/data_files/data_entry.csv")
+    day_entry_list = pd.read_csv("/content/DiarionDigital/static/assets/data_files/data_entry.csv")
     day_entry_list = day_entry_list.iloc[::-1]
 
     date1 = (day_entry_list['date'].values[0])
