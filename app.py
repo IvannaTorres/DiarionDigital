@@ -1,8 +1,10 @@
 from flask import Flask, render_template, url_for, request, jsonify
 import threading
-#libreria para exponer la api a una url publica
-from flask_ngrok import run_with_ngrok
+from pyngrok import ngrok
 from text_sentiment_prediction import *
+
+#libreria para exponer la api a una url publica
+
 
 app = Flask(__name__)
 port = "5000"
@@ -13,7 +15,7 @@ print(public_url)
 app.config["BASE_URL"] = public_url
 
 # correr la api en url publica
-run_with_ngrok(app)
+#run_with_ngrok(app)
 
 @app.route('/')
 #cambiar nombre de index a home
@@ -98,9 +100,11 @@ def show_entry():
             "emotion_url": emotion_url_3
         }
     ]
+    
 threading.Thread(target=app.run, kwargs={"use_reloader": False}).start()
 
 
 
 
     
+
